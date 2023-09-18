@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import {Text, View} from 'react-native';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+import CadastroProduto from "./Views/cadastroProduto";
+import Home from './Views/home';
+import Catalogo from "./Views/catalogo";
+import Cart from './Views/cart';
+import ConsultaCompras from "./Views/consultaCompras";
+
+const Routes = createAppContainer(
+  createSwitchNavigator({
+    Home,
+    CadastroProduto,
+    Catalogo,
+    Cart, 
+    ConsultaCompras
+  })
+)
+
+export default function App(){
+  return(
+    <Routes/>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
